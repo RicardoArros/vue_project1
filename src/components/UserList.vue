@@ -10,6 +10,17 @@
           v-model="filters.searchQuery"
         />
       </div>
+      <div class="col-md-6 col-lg-4 mx-auto my-3">
+        <select name="" id="" v-model="filters.gender" class="form-control">
+          <option
+            v-for="gender in filters.genderListObjects"
+            :value="gender.value"
+            :key="gender.value"
+          >
+            {{ gender.text }}
+          </option>
+        </select>
+      </div>
     </div>
 
     <!-- USERS CARDS -->
@@ -36,7 +47,7 @@ import { mapState, mapGetters } from "vuex";
 export default {
   name: "UserList",
   computed: {
-    ...mapState(["randomUsers", "filters"]),
+    ...mapState(["filters"]),
     ...mapGetters(["filteredUsers"]),
   },
 };
